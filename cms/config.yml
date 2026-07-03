@@ -1,10 +1,9 @@
 backend:
   name: github
   repo: bascar835/rincon-freddy
-  branch: main
-  auth_type: oauth
-  base_url: https://rincon-freddy.vercel.app
-  auth_endpoint: auth
+  branch: main 
+  auth_type: implicit
+
 
 publish_mode: simple
 
@@ -84,4 +83,4 @@ collections:
             summary: "{{alt}}"
             fields:
               - { name: src, label: "Imagen", widget: image }
-              - { name: alt, label: "Texto alternativo", widget: string }
+              - { name: alt, label: "Texto alternativo", widget: string } 
