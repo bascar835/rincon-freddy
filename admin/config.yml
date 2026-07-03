@@ -84,4 +84,4 @@ collections:
             summary: "{{alt}}"
             fields:
               - { name: src, label: "Imagen", widget: image }
-              - { name: alt, label: "Texto alternativo", widget: string }
+              - { name: alt, label: "Texto alternativo", widget: string } 
