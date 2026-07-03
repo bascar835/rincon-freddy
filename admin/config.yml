@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: bascar835/rincon-freddy
-  branch: main
+  branch: main 
   auth_type: implicit
 
 
