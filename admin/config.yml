@@ -2,18 +2,12 @@ backend:
   name: github
   repo: bascar835/rincon-freddy
   branch: main
-  base_url: https://TU-PROXY-OAUTH.vercel.app
+  auth_type: oauth
+  base_url: https://rincon-freddy.vercel.app
   auth_endpoint: auth
 
-# Decap necesita un pequeño proxy OAuth para poder iniciar sesión con GitHub.
-# Sustituye "TU-PROXY-OAUTH" por la URL real una vez lo despliegues (ver notas
-# al final de este archivo o pide instrucciones paso a paso).
-
-local_backend: true
-# ^ Con esto puedes probar el panel en local ejecutando "npx decap-server"
-#   sin necesidad de tener el proxy OAuth ya configurado.
-
 publish_mode: simple
+
 media_folder: "assets/img/uploads"
 public_folder: "/assets/img/uploads"
 
@@ -70,6 +64,7 @@ collections:
               - { name: alt, label: "Texto alternativo de la imagen", widget: string }
               - { name: description, label: "Descripción", widget: text }
               - { name: price, label: "Precio (ej. 8,90 € o Desde 4,50 €)", widget: string }
+
           - name: extra
             label: "También encontrarás (lista corta de texto)"
             widget: list
