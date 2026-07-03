@@ -1,0 +1,92 @@
+backend:
+  name: github
+  repo: bascar835/rincon-freddy
+  branch: main
+  base_url: https://TU-PROXY-OAUTH.vercel.app
+  auth_endpoint: auth
+
+# Decap necesita un pequeño proxy OAuth para poder iniciar sesión con GitHub.
+# Sustituye "TU-PROXY-OAUTH" por la URL real una vez lo despliegues (ver notas
+# al final de este archivo o pide instrucciones paso a paso).
+
+local_backend: true
+# ^ Con esto puedes probar el panel en local ejecutando "npx decap-server"
+#   sin necesidad de tener el proxy OAuth ya configurado.
+
+publish_mode: simple
+media_folder: "assets/img/uploads"
+public_folder: "/assets/img/uploads"
+
+collections:
+  - name: "posts"
+    label: "Blog · Artículos"
+    files:
+      - name: "posts"
+        label: "Lista de artículos"
+        file: "content/posts.json"
+        format: json
+        fields:
+          - name: posts
+            label: "Artículos"
+            widget: list
+            summary: "{{title}} — {{date}}"
+            fields:
+              - { name: slug, label: "Slug (URL, sin espacios)", widget: string }
+              - { name: title, label: "Título", widget: string }
+              - { name: date, label: "Fecha", widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+              - { name: author, label: "Autor", widget: string, default: "Rincón de Freddy" }
+              - name: category
+                label: "Categoría"
+                widget: select
+                options: ["Desayunos", "Ambiente", "Gastronomía", "Benidorm", "Tapas"]
+              - { name: image, label: "Imagen", widget: image }
+              - { name: excerpt, label: "Extracto (resumen corto)", widget: text }
+              - name: content
+                label: "Secciones del artículo"
+                widget: list
+                summary: "{{heading}}"
+                fields:
+                  - { name: heading, label: "Subtítulo de la sección", widget: string }
+                  - name: paragraphs
+                    label: "Párrafos"
+                    widget: list
+                    field: { name: paragraph, label: "Párrafo", widget: text }
+
+  - name: "menu"
+    label: "Carta"
+    files:
+      - name: "menu"
+        label: "Platos de la carta"
+        file: "content/menu.json"
+        format: json
+        fields:
+          - name: featured
+            label: "Platos destacados (carta principal)"
+            widget: list
+            summary: "{{title}} — {{price}}"
+            fields:
+              - { name: title, label: "Nombre del plato", widget: string }
+              - { name: image, label: "Imagen", widget: image }
+              - { name: alt, label: "Texto alternativo de la imagen", widget: string }
+              - { name: description, label: "Descripción", widget: text }
+              - { name: price, label: "Precio (ej. 8,90 € o Desde 4,50 €)", widget: string }
+          - name: extra
+            label: "También encontrarás (lista corta de texto)"
+            widget: list
+            field: { name: line, label: "Línea", widget: string }
+
+  - name: "gallery"
+    label: "Galería"
+    files:
+      - name: "gallery"
+        label: "Imágenes de la galería"
+        file: "content/gallery.json"
+        format: json
+        fields:
+          - name: images
+            label: "Imágenes"
+            widget: list
+            summary: "{{alt}}"
+            fields:
+              - { name: src, label: "Imagen", widget: image }
+              - { name: alt, label: "Texto alternativo", widget: string }

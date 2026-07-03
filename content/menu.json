@@ -1,0 +1,58 @@
+{
+  "featured": [
+    {
+      "title": "Sardinas",
+      "image": "assets/img/sardinas.jpg",
+      "alt": "Sardinas a la plancha con limón y aceite de oliva",
+      "description": "Sardinas a la plancha, jugosas y con un toque de limón, servidas cuando el mar pide mesa y una bebida fresca.",
+      "price": "8,90 €"
+    },
+    {
+      "title": "Anchoas",
+      "image": "assets/img/anchoas.jpg",
+      "alt": "Anchoas servidas sobre pan crujiente con tomate",
+      "description": "Anchoas sobre pan crujiente con tomate maduro, aceite de oliva y un punto salino elegante.",
+      "price": "7,40 €"
+    },
+    {
+      "title": "Chorizos al infierno",
+      "image": "assets/img/chorizos-infierno.jpg",
+      "alt": "Chorizos al infierno servidos en cazuela de barro con cerveza",
+      "description": "Un plato con carácter, servido en cazuela de barro y acompañado de bebida fresca para despertar el apetito sin ocultar el sabor principal.",
+      "price": "9,20 €"
+    },
+    {
+      "title": "Tapa casera",
+      "image": "assets/img/bocadillo-pollo.jpg",
+      "alt": "Tapa casera servida en cazuela con pan para acompañar",
+      "description": "Una ración caliente de inspiración casera, pensada para compartir con pan y bebida en un ambiente relajado.",
+      "price": "8,20 €"
+    },
+    {
+      "title": "Barra y café",
+      "image": "assets/img/caramel-latte.jpg",
+      "alt": "Café con cerveza y tapa en mesa de madera",
+      "description": "Servicio de barra con café, cerveza y tapas sencillas para cualquier hora del día.",
+      "price": "Desde 2,10 €"
+    },
+    {
+      "title": "Picoteo fresco",
+      "image": "assets/img/batido-natural.jpg",
+      "alt": "Tapa de picoteo fresca servida en mesa",
+      "description": "Raciones ligeras y frescas para acompañar aperitivos, sobremesa o una parada breve en terraza.",
+      "price": "4,90 €"
+    },
+    {
+      "title": "Desayunos",
+      "image": "assets/img/desayuno-tostada.jpg",
+      "alt": "Bocadillo o tostada con jamón serrano servida al momento",
+      "description": "Tostadas y bocadillos con jamón, tomate y café para comenzar el día con energía y sin prisas.",
+      "price": "Desde 4,50 €"
+    }
+  ],
+  "extra": [
+    "Bocadillos de lomo, bacon, panceta y longaniza",
+    "Extras de jamón serrano, jamón york y queso manchego",
+    "Chai latte, leche dorada y opciones frías de temporada"
+  ]
+}

@@ -154,90 +154,21 @@
         <h2>Sabores sencillos, bien hechos y pensados para volver.</h2>
         <p>La carta mezcla clásicos mediterráneos con desayunos completos, cafés especiales, batidos naturales y bocadillos abundantes. Todo con una presentación limpia y una cocina que respeta el producto.</p>
       </div>
-      <div class="container card-grid card-grid-featured">
-        <article class="dish-card">
-          <img src="assets/img/sardinas.jpg" alt="Sardinas a la plancha con limón y aceite de oliva" loading="lazy">
-          <div>
-            <h3>Sardinas</h3>
-            <p>Sardinas a la plancha, jugosas y con un toque de limón, servidas cuando el mar pide mesa y una bebida fresca.</p>
-            <strong>8,90 €</strong>
-          </div>
-        </article>
-        <article class="dish-card">
-          <img src="assets/img/anchoas.jpg" alt="Anchoas servidas sobre pan crujiente con tomate" loading="lazy">
-          <div>
-            <h3>Anchoas</h3>
-            <p>Anchoas sobre pan crujiente con tomate maduro, aceite de oliva y un punto salino elegante.</p>
-            <strong>7,40 €</strong>
-          </div>
-        </article>
-        <article class="dish-card">
-          <img src="assets/img/chorizos-infierno.jpg" alt="Chorizos al infierno servidos en cazuela de barro con cerveza" loading="lazy">
-          <div>
-            <h3>Chorizos al infierno</h3>
-            <p>Un plato con carácter, servido en cazuela de barro y acompañado de bebida fresca para despertar el apetito sin ocultar el sabor principal.</p>
-            <strong>9,20 €</strong>
-          </div>
-        </article>
-        <article class="dish-card">
-          <img src="assets/img/bocadillo-pollo.jpg" alt="Tapa casera servida en cazuela con pan para acompañar" loading="lazy">
-          <div>
-            <h3>Tapa casera</h3>
-            <p>Una ración caliente de inspiración casera, pensada para compartir con pan y bebida en un ambiente relajado.</p>
-            <strong>8,20 €</strong>
-          </div>
-        </article>
-        <article class="dish-card">
-          <img src="assets/img/caramel-latte.jpg" alt="Café con cerveza y tapa en mesa de madera" loading="lazy">
-          <div>
-            <h3>Barra y café</h3>
-            <p>Servicio de barra con café, cerveza y tapas sencillas para cualquier hora del día.</p>
-            <strong>Desde 2,10 €</strong>
-          </div>
-        </article>
-        <article class="dish-card">
-          <img src="assets/img/batido-natural.jpg" alt="Tapa de picoteo fresca servida en mesa" loading="lazy">
-          <div>
-            <h3>Picoteo fresco</h3>
-            <p>Raciones ligeras y frescas para acompañar aperitivos, sobremesa o una parada breve en terraza.</p>
-            <strong>4,90 €</strong>
-          </div>
-        </article>
-        <article class="dish-card">
-          <img src="assets/img/desayuno-tostada.jpg" alt="Bocadillo o tostada con jamón serrano servida al momento" loading="lazy">
-          <div>
-            <h3>Desayunos</h3>
-            <p>Tostadas y bocadillos con jamón, tomate y café para comenzar el día con energía y sin prisas.</p>
-            <strong>Desde 4,50 €</strong>
-          </div>
-        </article>
-      </div>
+      <div class="container card-grid card-grid-featured" id="menu-featured"></div>
       <div class="container menu-summary">
         <div>
           <h3>También encontrarás</h3>
-          <ul class="check-list">
-            <li>Bocadillos de lomo, bacon, panceta y longaniza</li>
-            <li>Extras de jamón serrano, jamón york y queso manchego</li>
-            <li>Chai latte, leche dorada y opciones frías de temporada</li>
-          </ul>
+          <ul class="check-list" id="menu-extra-list"></ul>
         </div>
         <a class="btn btn-secondary" href="blog.html">Leer el blog gastronómico</a>
       </div>
     </section>
 
-    <section class="section reveal" id="galeria">
-      <div class="container section-heading">
-        <p class="eyebrow">Galería</p>
-        <h2>Imágenes que cuentan el ambiente antes del primer bocado.</h2>
-      </div>
-      <div class="container gallery-grid">
-        <figure class="gallery-item"><img src="assets/img/rincon-freddy-terraza.jpg" alt="Fachada de Rincón de Freddy de noche con la terraza iluminada" loading="lazy"><figcaption>Fachada</figcaption></figure>
-        <figure class="gallery-item"><img src="assets/img/bocadillo-lomo.jpg" alt="Jamón serrano servido sobre pan con bebida de aperitivo" loading="lazy"><figcaption>Jamón serrano</figcaption></figure>
-        <figure class="gallery-item"><img src="assets/img/bocadillo-bacon.jpg" alt="Tapa de cocina casera en cazuela con pan" loading="lazy"><figcaption>Tapa casera</figcaption></figure>
-        <figure class="gallery-item"><img src="assets/img/chai-latte.jpg" alt="Chorizos o tapas calientes servidas en cazuela de barro" loading="lazy"><figcaption>Cazuela</figcaption></figure>
-        <figure class="gallery-item"><img src="assets/img/leche-dorada.jpg" alt="Sardinas a la plancha servidas con limón y bebida" loading="lazy"><figcaption>Sardinas</figcaption></figure>
-        <figure class="gallery-item"><img src="assets/img/blog-post-1.jpg" alt="Ambiente interior y exterior de Rincón de Freddy" loading="lazy"><figcaption>Ambiente</figcaption></figure>
-      </div>
+    <section class="gallery" id="galeria">
+        <div class="container">
+            <h2>Galería</h2>
+            <div class="gallery-grid" id="gallery-grid"></div>
+        </div>
     </section>
 
     <section class="section section-alt reveal" id="opiniones">

@@ -45,4 +45,4 @@ function renderBlog() {
   if (query && searchInput) { searchInput.value = query; state.search = query; }
   render();
 }
-document.addEventListener('DOMContentLoaded', renderBlog);
+document.addEventListener('rf:data-ready', renderBlog);

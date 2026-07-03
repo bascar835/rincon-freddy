@@ -126,4 +126,4 @@ function renderPost() {
   renderRelated(post);
   updateStructuredData(post);
 }
-document.addEventListener('DOMContentLoaded', renderPost);
+document.addEventListener('rf:data-ready', renderPost);

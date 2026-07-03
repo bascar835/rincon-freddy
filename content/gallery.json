@@ -1,0 +1,8 @@
+{
+  "images": [
+    { "src": "assets/img/sardinas.jpg", "alt": "Sardinas a la brasa en Rincón de Freddy" },
+    { "src": "assets/img/anchoas.jpg", "alt": "Anchoas del Cantábrico" },
+    { "src": "assets/img/chorizos-infierno.jpg", "alt": "Chorizos al infierno" },
+    { "src": "assets/img/bocadillo-pollo.jpg", "alt": "Bocadillo de pollo" }
+  ]
+}
