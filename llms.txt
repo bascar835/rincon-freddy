@@ -1,0 +1,36 @@
+# Rincón de Freddy
+
+Sitio web estático de un restaurante y cafetería mediterránea en Benidorm, España.
+
+## Propósito
+
+Ofrecer información clara sobre la carta, la terraza, el ambiente, el horario, el blog gastronómico y los datos de contacto del local.
+
+## Páginas principales
+
+- `index.html`: presentación principal, carta destacada, galería, opiniones, horario, contacto y últimos artículos.
+- `blog.html`: listado de artículos con buscador, categorías y paginación preparada.
+- `post.html`: vista de artículo individual con contenido largo, compartir y relacionados.
+- `404.html`: página de error alineada con la identidad visual.
+
+## Contenido destacado
+
+- Carta mediterránea con sardinas, anchoas, chorizos al infierno, bocadillos, cafés, batidos y desayunos.
+- Blog original sobre gastronomía, Benidorm, productos frescos, tapas y ambiente.
+- Identidad visual cálida, minimalista y responsive para GitHub Pages.
+
+## Datos del negocio
+
+- Nombre: Rincón de Freddy
+- Ubicación: Benidorm, Alicante, España
+- Teléfono: +34 965 987 321
+- Email: hola@rincondefreddy.es
+- Dirección: Av. Jaime I, 48, 03501 Benidorm, Alicante
+
+## Reglas técnicas
+
+- Solo HTML5, CSS3 y JavaScript ES6.
+- Sin backend.
+- Sin frameworks.
+- Compatible con GitHub Pages.
+- Accesible por teclado y con estructura semántica.

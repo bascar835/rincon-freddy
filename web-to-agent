@@ -1,0 +1,24 @@
+Rincón de Freddy
+
+Sitio estático para GitHub Pages.
+
+Páginas:
+- index.html
+- blog.html
+- post.html
+- 404.html
+
+Contenido clave:
+- Restaurante y cafetería mediterránea en Benidorm
+- Terraza, desayunos, tapas, bocadillos, cafés y batidos
+- Blog con 4 artículos originales
+
+Recursos:
+- assets/css/style.css
+- assets/js/main.js
+- assets/js/blog.js
+- assets/js/post.js
+- assets/img/*
+
+Nota:
+- Todas las rutas deben mantenerse relativas y sin backend.

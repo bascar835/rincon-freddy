@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>/</loc>
+  </url>
+  <url>
+    <loc>/index.html</loc>
+  </url>
+  <url>
+    <loc>/blog.html</loc>
+  </url>
+  <url>
+    <loc>/post.html?post=desayunos-con-sabor-mediterraneo</loc>
+  </url>
+  <url>
+    <loc>/post.html?post=benidorm-entre-mesa-y-mar</loc>
+  </url>
+  <url>
+    <loc>/post.html?post=tapas-que-resumen-el-mediterraneo</loc>
+  </url>
+  <url>
+    <loc>/post.html?post=cafe-y-desayuno-para-empezar-bien</loc>
+  </url>
+</urlset>
