@@ -21,6 +21,13 @@
           "paragraphs": [
             "Abrimos muy pronto para que puedas desayunar antes de empezar la jornada, parar un momento entre paseo y paseo o sentarte a tomar algo con calma. La idea es sencilla: ofrecer un espacio cómodo, una atención amable y una propuesta que funcione desde primera hora.",
             "La terraza y la barra están pensadas para quienes valoran una parada rápida y para quienes prefieren quedarse un rato más."
+          ],
+          "media": [
+            {
+              "type": "image",
+              "image": "assets/img/desayuno-tostada.jpg",
+              "caption": "Nuestra tostada de desayuno, recién hecha cada mañana."
+            }
           ]
         },
         {

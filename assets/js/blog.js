@@ -11,7 +11,7 @@ function renderBlog() {
   const matches = (post) => {
     const search = state.search.trim().toLowerCase();
     const categoryMatches = state.category === 'all' || post.category.toLowerCase() === state.category;
-    const haystack = `${post.title} ${post.excerpt} ${post.category} ${post.content.map((section) => section.paragraphs.join(' ')).join(' ')}`.toLowerCase();
+    const haystack = `${post.title} ${post.excerpt} ${post.category} ${(post.content || []).map((section) => (section.paragraphs || []).join(' ')).join(' ')}`.toLowerCase();
     const searchMatches = !search || haystack.includes(search);
     return categoryMatches && searchMatches;
   };

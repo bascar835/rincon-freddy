@@ -8,7 +8,7 @@ backend:
 publish_mode: simple
 
 media_folder: "assets/img/uploads"
-public_folder: "/assets/img/uploads"
+public_folder: "assets/img/uploads"
 
 collections:
   - name: "posts"
@@ -32,7 +32,17 @@ collections:
                 label: "Categoría"
                 widget: select
                 options: ["Desayunos", "Ambiente", "Gastronomía", "Benidorm", "Tapas"]
-              - { name: image, label: "Imagen", widget: image }
+              - { name: image, label: "Imagen principal (portada del artículo)", widget: image }
+              - name: hero_video
+                label: "Vídeo destacado (opcional)"
+                widget: file
+                required: false
+                hint: "Si lo rellenas, este vídeo sustituye a la imagen principal en la cabecera del artículo. Sube un .mp4 ligero."
+              - name: hero_video_embed_url
+                label: "O enlace de reel/vídeo destacado (opcional)"
+                widget: string
+                required: false
+                hint: "Alternativa al vídeo subido: pega la URL de un reel de Instagram, TikTok o YouTube Shorts para que aparezca en la cabecera. Si rellenas esto, no hace falta el campo de vídeo subido."
               - { name: excerpt, label: "Extracto (resumen corto)", widget: text }
               - name: content
                 label: "Secciones del artículo"
@@ -44,6 +54,41 @@ collections:
                     label: "Párrafos"
                     widget: list
                     field: { name: paragraph, label: "Párrafo", widget: text }
+                  - name: media
+                    label: "Fotos, vídeos o reels de esta sección"
+                    label_singular: "Elemento multimedia"
+                    hint: "Opcional. Añade una foto suelta, un vídeo subido o pega el enlace de un reel de Instagram/TikTok/YouTube Shorts."
+                    widget: list
+                    required: false
+                    summary: "{{fields.type}}"
+                    fields:
+                      - name: type
+                        label: "Tipo de contenido"
+                        widget: select
+                        default: image
+                        options:
+                          - { label: "Foto", value: "image" }
+                          - { label: "Vídeo subido (mp4)", value: "video" }
+                          - { label: "Reel / enlace externo (Instagram, TikTok, YouTube Shorts)", value: "embed" }
+                      - name: image
+                        label: "Foto"
+                        widget: image
+                        required: false
+                        hint: "Rellena solo si el tipo es 'Foto'."
+                      - name: video
+                        label: "Archivo de vídeo"
+                        widget: file
+                        required: false
+                        hint: "Rellena solo si el tipo es 'Vídeo subido'. Sube un .mp4 ligero."
+                      - name: embed_url
+                        label: "Enlace del reel o vídeo"
+                        widget: string
+                        required: false
+                        hint: "Rellena solo si el tipo es 'Reel / enlace externo'. Pega la URL completa (Instagram, TikTok o YouTube)."
+                      - name: caption
+                        label: "Pie de foto/vídeo"
+                        widget: string
+                        required: false
 
   - name: "menu"
     label: "Carta"

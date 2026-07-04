@@ -55,12 +55,15 @@ function createBlogCard(post, compact = false) {
   const article = document.createElement('article');
   article.className = 'blog-card reveal is-visible';
   article.innerHTML = `
-    <img src="${post.image}" alt="${post.title}" loading="lazy">
+    <div class="media-frame">
+      <img src="${post.image}" alt="${post.title}" loading="lazy">
+      <span class="card-badge">${post.category}</span>
+    </div>
     <div>
-      <p class="blog-meta"><span>${post.category}</span><span>${formatDate(post.date)}</span></p>
+      <p class="blog-meta"><span>${formatDate(post.date)}</span></p>
       <h3>${post.title}</h3>
       <p>${post.excerpt}</p>
-      <a class="btn ${compact ? 'btn-ghost' : 'btn-secondary'}" href="post.html?post=${encodeURIComponent(post.slug)}">Leer artículo</a>
+      <a class="btn ${compact ? 'btn-ghost' : 'btn-secondary'}" href="post-${encodeURIComponent(post.slug)}.html">Leer artículo</a>
     </div>
   `;
   return article;
@@ -69,7 +72,9 @@ function createDishCard(dish) {
   const article = document.createElement('article');
   article.className = 'dish-card';
   article.innerHTML = `
-    <img src="${dish.image}" alt="${dish.alt || dish.title}" loading="lazy">
+    <div class="media-frame">
+      <img src="${dish.image}" alt="${dish.alt || dish.title}" loading="lazy">
+    </div>
     <div>
       <h3>${dish.title}</h3>
       <p>${dish.description}</p>
@@ -157,7 +162,7 @@ function updateBlogPostingSchema() {
     dateModified: post.date,
     image: [post.image],
     description: post.excerpt,
-    mainEntityOfPage: `post.html?post=${encodeURIComponent(post.slug)}`,
+    mainEntityOfPage: `${window.location.origin}${window.location.pathname.replace(/[^/]*$/, '')}post-${encodeURIComponent(post.slug)}.html`,
     publisher: {
       '@type': 'Organization',
       name: 'Rincón de Freddy',
