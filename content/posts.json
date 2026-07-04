@@ -1,13 +1,14 @@
 {
   "posts": [
     {
-      "slug": "desayunos-con-sabor-mediterraneo",
-      "title": "Desayunos desde las 5:30 AM en Benidorm",
-      "date": "2026-07-03",
-      "author": "Rincón de Freddy",
-      "category": "Desayunos",
-      "image": "assets/img/blog-post-1.jpg",
       "excerpt": "Ven a Rincón de Freddy y disfruta de desayunos desde las 5:30 AM, tapas caseras, sardinas a la plancha y el mejor ambiente para compartir.",
+      "author": "Rincón de Freddy",
+      "slug": "desayunos-con-sabor-mediterraneo",
+      "date": "2026-07-03",
+      "featured_media": {
+        "type": "image"
+      },
+      "title": "Desayunos desde las 5:30 AM en Benidorm",
       "content": [
         {
           "heading": "¿Buscas un sitio donde disfrutar del auténtico sabor de Benidorm?",
@@ -25,7 +26,7 @@
           "media": [
             {
               "type": "image",
-              "image": "assets/img/desayuno-tostada.jpg",
+              "image": "https://images.pexels.com/photos/25048973/pexels-photo-25048973.jpeg?auto=compress&cs=tinysrgb&w=1200",
               "caption": "Nuestra tostada de desayuno, recién hecha cada mañana."
             }
           ]
@@ -37,16 +38,19 @@
             "#Benidorm #TapasBenidorm #DesayunosBenidorm #RinconDeFreddy #CostaBlanca"
           ]
         }
-      ]
+      ],
+      "image": "assets/img/blog-post-1.jpg",
+      "category": "Desayunos"
     },
     {
-      "slug": "benidorm-entre-mesa-y-mar",
-      "title": "¡Hoy juega Ecuador!",
-      "date": "2026-06-25",
-      "author": "Rincón de Freddy",
-      "category": "Ambiente",
-      "image": "assets/img/blog-post-2.jpg",
       "excerpt": "Desde España apoyamos a La Tri con el mismo sabor de casa. ¿Cuál es tu pronóstico para el partido? Déjanos tu marcador en los comentarios.",
+      "author": "Rincón de Freddy",
+      "slug": "benidorm-entre-mesa-y-mar",
+      "date": "2026-06-25",
+      "featured_media": {
+        "type": "image"
+      },
+      "title": "¡Hoy juega Ecuador!",
       "content": [
         {
           "heading": "¡Hoy juega Ecuador!",
@@ -69,7 +73,22 @@
             "Rincón de Freddy sigue siendo un punto de encuentro para desayunar, tapear y compartir la pasión por los partidos importantes. El ambiente es cercano, la atención es directa y siempre hay una mesa lista para vivir el fútbol con sabor de casa."
           ]
         }
-      ]
+      ],
+      "image": "assets/img/blog-post-2.jpg",
+      "category": "Ambiente"
+    },
+    {
+      "author": "Rincón de Freddy",
+      "featured_media": {
+        "type": "video",
+        "video": "assets/img/uploads/2026-07-04-04-51-29.mp4"
+      },
+      "slug": "mientras-playa-despierta",
+      "title": "Mientras la playa despierta",
+      "date": "2026-07-04",
+      "category": "Ambiente",
+      "image": "assets/img/uploads/ambiente.jpg",
+      "excerpt": "Mientras la playa despierta, nosotros ya estamos preparando el primer café del día, las tostadas y nuestras sardinas frescas.☕️🌅\n\nPorque los mejores días empiezan temprano.\n\n📍Rincón de Freddy\nAv. Jaime I, 48, Benidorm\n\n¿Team desayuno temprano o team tapas al mediodía? 👇\n•\n•\n#Benidorm\n#BenidormFood\n#DesayunosBenidorm\n#TapasBenidorm\n#Sardinas"
     }
   ]
 }

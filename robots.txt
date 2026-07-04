@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bascar835.github.io/rincon-freddy/sitemap.xml
+Sitemap: /sitemap.xml

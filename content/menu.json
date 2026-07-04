@@ -23,28 +23,28 @@
     },
     {
       "title": "Tapa casera",
-      "image": "assets/img/bocadillo-pollo.jpg",
+      "image": "https://images.pexels.com/photos/31918770/pexels-photo-31918770.jpeg?auto=compress&cs=tinysrgb&w=1200",
       "alt": "Tapa casera servida en cazuela con pan para acompañar",
       "description": "Una ración caliente de inspiración casera, pensada para compartir con pan y bebida en un ambiente relajado.",
       "price": "8,20 €"
     },
     {
       "title": "Barra y café",
-      "image": "assets/img/caramel-latte.jpg",
+      "image": "https://images.pexels.com/photos/5322559/pexels-photo-5322559.jpeg?auto=compress&cs=tinysrgb&w=1200",
       "alt": "Café con cerveza y tapa en mesa de madera",
       "description": "Servicio de barra con café, cerveza y tapas sencillas para cualquier hora del día.",
       "price": "Desde 2,10 €"
     },
     {
       "title": "Picoteo fresco",
-      "image": "assets/img/batido-natural.jpg",
+      "image": "https://images.pexels.com/photos/775032/pexels-photo-775032.jpeg?auto=compress&cs=tinysrgb&w=1200",
       "alt": "Tapa de picoteo fresca servida en mesa",
       "description": "Raciones ligeras y frescas para acompañar aperitivos, sobremesa o una parada breve en terraza.",
       "price": "4,90 €"
     },
     {
       "title": "Desayunos",
-      "image": "assets/img/desayuno-tostada.jpg",
+      "image": "https://images.pexels.com/photos/25048973/pexels-photo-25048973.jpeg?auto=compress&cs=tinysrgb&w=1200",
       "alt": "Bocadillo o tostada con jamón serrano servida al momento",
       "description": "Tostadas y bocadillos con jamón, tomate y café para comenzar el día con energía y sin prisas.",
       "price": "Desde 4,50 €"

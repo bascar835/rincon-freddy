@@ -17,6 +17,7 @@ const RF_DATA = {
   posts: [],
   menu: { featured: [], extra: [] },
   gallery: { images: [] },
+  hero: { hero_media: { type: 'image', image: 'assets/img/hero.jpg', caption: '' } },
 };
 
 function contentUrl(file) {
@@ -38,14 +39,53 @@ async function fetchJson(file, fallback) {
 }
 
 async function loadSiteData() {
-  const [postsData, menuData, galleryData] = await Promise.all([
+  const [postsData, menuData, galleryData, homeData] = await Promise.all([
     fetchJson('posts.json', { posts: [] }),
     fetchJson('menu.json', { featured: [], extra: [] }),
     fetchJson('gallery.json', { images: [] }),
+    fetchJson('home.json', RF_DATA.hero),
   ]);
   RF_DATA.posts = postsData.posts || [];
   RF_DATA.menu = { featured: menuData.featured || [], extra: menuData.extra || [] };
   RF_DATA.gallery = { images: galleryData.images || [] };
+  RF_DATA.hero = homeData && homeData.hero_media ? homeData : RF_DATA.hero;
+}
+
+function parseEmbedUrl(url) {
+  if (!url) return null;
+  try {
+    const clean = url.trim();
+    const youtubeMatch = clean.match(/(?:youtube\.com\/(?:watch\?v=|shorts\/)|youtu\.be\/)([\w-]{6,})/i);
+    if (youtubeMatch) return { kind: 'ratio-16-9', src: `https://www.youtube.com/embed/${youtubeMatch[1]}`, title: 'Vídeo de YouTube' };
+    const instagramMatch = clean.match(/instagram\.com\/(?:reel|p)\/([\w-]+)/i);
+    if (instagramMatch) return { kind: 'ratio-9-16', src: `https://www.instagram.com/reel/${instagramMatch[1]}/embed`, title: 'Reel de Instagram' };
+    const tiktokMatch = clean.match(/tiktok\.com\/.*\/video\/(\d+)/i);
+    if (tiktokMatch) return { kind: 'ratio-9-16', src: `https://www.tiktok.com/embed/v2/${tiktokMatch[1]}`, title: 'Vídeo de TikTok' };
+    return { kind: 'fallback', src: clean, title: 'Ver contenido' };
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+}
+function renderHeroMedia() {
+  const container = document.querySelector('#hero-media');
+  const caption = document.querySelector('#hero-caption');
+  if (!container) return;
+  const media = (RF_DATA.hero && RF_DATA.hero.hero_media) || {};
+  if (caption) caption.textContent = media.caption || '';
+  if (media.type === 'video' && media.video) {
+    container.innerHTML = `<video class="hero-image" autoplay muted loop playsinline controls preload="metadata" src="${media.video}"></video>`;
+    return;
+  }
+  if (media.type === 'embed' && media.embed_url) {
+    const embed = parseEmbedUrl(media.embed_url);
+    if (embed && embed.kind !== 'fallback') {
+      const isReel = embed.kind === 'ratio-9-16';
+      container.innerHTML = `<div class="hero-embed-frame${isReel ? ' is-reel' : ''}"><iframe src="${embed.src}" title="${embed.title}" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>`;
+      return;
+    }
+  }
+  container.innerHTML = `<img src="${media.image || 'assets/img/hero.jpg'}" alt="Fachada y ambiente de Rincón de Freddy en Benidorm" class="hero-image" data-parallax>`;
 }
 
 function formatDate(value) {
@@ -63,7 +103,7 @@ function createBlogCard(post, compact = false) {
       <p class="blog-meta"><span>${formatDate(post.date)}</span></p>
       <h3>${post.title}</h3>
       <p>${post.excerpt}</p>
-      <a class="btn ${compact ? 'btn-ghost' : 'btn-secondary'}" href="post-${encodeURIComponent(post.slug)}.html">Leer artículo</a>
+      <a class="btn ${compact ? 'btn-ghost' : 'btn-secondary'}" href="post.html?post=${encodeURIComponent(post.slug)}">Leer artículo</a>
     </div>
   `;
   return article;
@@ -162,7 +202,7 @@ function updateBlogPostingSchema() {
     dateModified: post.date,
     image: [post.image],
     description: post.excerpt,
-    mainEntityOfPage: `${window.location.origin}${window.location.pathname.replace(/[^/]*$/, '')}post-${encodeURIComponent(post.slug)}.html`,
+    mainEntityOfPage: `post.html?post=${encodeURIComponent(post.slug)}`,
     publisher: {
       '@type': 'Organization',
       name: 'Rincón de Freddy',
@@ -179,6 +219,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   initLazyLoading();
   await loadSiteData();
   setSharedData();
+  renderHeroMedia();
   renderLatestPosts();
   renderMenu();
   renderGallery();

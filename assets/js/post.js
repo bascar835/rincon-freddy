@@ -1,12 +1,7 @@
 function getCurrentPost() {
-  const fixedSlug = typeof window.RF_POST_SLUG === 'string' ? window.RF_POST_SLUG : '';
   const params = new URLSearchParams(window.location.search);
-  const slug = fixedSlug || params.get('post') || window.location.hash.replace('#', '');
+  const slug = params.get('post') || window.location.hash.replace('#', '');
   return window.RF_DATA.posts.find((post) => post.slug === slug) || window.RF_DATA.posts[0];
-}
-function getCanonicalPostUrl(post) {
-  const dir = window.location.pathname.replace(/[^/]*$/, '');
-  return `${window.location.origin}${dir}post-${post.slug}.html`;
 }
 function setMetaTag(selector, attribute, value) {
   let element = document.querySelector(selector);
@@ -78,7 +73,17 @@ function buildPostContent(post) {
   const container = document.querySelector('#post-content');
   if (!container) return;
   container.replaceChildren();
-  (post.content || []).forEach((section, index) => {
+  const sections = post.content || [];
+  if (sections.length === 0) {
+    if (post.excerpt) {
+      const wrapper = document.createElement('section');
+      wrapper.className = 'post-section';
+      wrapper.innerHTML = post.excerpt.split('\n').filter((line) => line.trim()).map((line) => `<p>${line}</p>`).join('');
+      container.append(wrapper);
+    }
+    return;
+  }
+  sections.forEach((section, index) => {
     try {
       const wrapper = document.createElement('section');
       wrapper.className = 'post-section';
@@ -110,7 +115,7 @@ function buildPostContent(post) {
 }
 function renderShareButtons(post) {
   const targets = [document.querySelector('#post-share-top'), document.querySelector('#post-share-bottom')].filter(Boolean);
-  const shareUrl = getCanonicalPostUrl(post);
+  const shareUrl = `${window.location.origin}${window.location.pathname}?post=${encodeURIComponent(post.slug)}`;
   const text = `${post.title} - Rincón de Freddy`;
   targets.forEach((target) => {
     target.replaceChildren();
@@ -158,7 +163,7 @@ function updateStructuredData(post) {
     dateModified: post.date,
     image: [post.image],
     description: post.excerpt,
-    mainEntityOfPage: getCanonicalPostUrl(post),
+    mainEntityOfPage: `${window.location.origin}${window.location.pathname}?post=${encodeURIComponent(post.slug)}`,
     publisher: { '@type': 'Organization', name: 'Rincón de Freddy', logo: { '@type': 'ImageObject', url: 'assets/img/logo.png' } },
   };
   const element = document.querySelector('#blogposting-schema');
@@ -168,14 +173,32 @@ function applyPostMeta(post) {
   document.title = `${post.title} | Rincón de Freddy`;
   setMetaTag('meta[name="description"]', 'content', post.excerpt);
   setMetaTag('meta[name="keywords"]', 'content', `${post.category.toLowerCase()}, gastronomía, Benidorm, Rincón de Freddy`);
-  setMetaTag('link[rel="canonical"]', 'href', getCanonicalPostUrl(post));
+  setMetaTag('link[rel="canonical"]', 'href', `post.html?post=${encodeURIComponent(post.slug)}`);
   setMetaTag('meta[property="og:title"]', 'content', post.title);
   setMetaTag('meta[property="og:description"]', 'content', post.excerpt);
-  setMetaTag('meta[property="og:url"]', 'content', getCanonicalPostUrl(post));
+  setMetaTag('meta[property="og:url"]', 'content', `post.html?post=${encodeURIComponent(post.slug)}`);
   setMetaTag('meta[property="og:image"]', 'content', post.image);
   setMetaTag('meta[name="twitter:title"]', 'content', post.title);
   setMetaTag('meta[name="twitter:description"]', 'content', post.excerpt);
   setMetaTag('meta[name="twitter:image"]', 'content', post.image);
+}
+function renderFeaturedMedia(post) {
+  const container = document.querySelector('#post-media');
+  if (!container) return;
+  const media = post.featured_media || {};
+  if (media.type === 'video' && media.video) {
+    container.innerHTML = `<video class="post-image" controls preload="metadata" src="${media.video}"></video>`;
+    return;
+  }
+  if (media.type === 'embed' && media.embed_url) {
+    const embed = parseEmbedUrl(media.embed_url);
+    if (embed && embed.kind !== 'fallback') {
+      const isReel = embed.kind === 'ratio-9-16';
+      container.innerHTML = `<div class="post-embed-frame-hero${isReel ? ' is-reel' : ''}"><iframe src="${embed.src}" title="${embed.title}" loading="lazy" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>`;
+      return;
+    }
+  }
+  container.innerHTML = `<img id="post-image" src="${post.image}" alt="${post.title}" class="post-image">`;
 }
 function renderPost() {
   const post = getCurrentPost();
@@ -183,13 +206,12 @@ function renderPost() {
   const title = document.querySelector('#post-title');
   const category = document.querySelector('#post-category');
   const meta = document.querySelector('#post-meta');
-  const image = document.querySelector('#post-image');
   const author = document.querySelector('#post-author');
   if (title) title.textContent = post.title;
   if (category) category.textContent = post.category;
   if (meta) meta.innerHTML = `<span>${window.RF_UTILS.formatDate(post.date)}</span><span>${post.author}</span><span>${post.category}</span>`;
-  if (image) { image.src = post.image; image.alt = post.title; }
   if (author) author.textContent = post.author;
+  renderFeaturedMedia(post);
   applyPostMeta(post);
   buildPostContent(post);
   renderShareButtons(post);

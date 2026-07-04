@@ -7,22 +7,22 @@
   <meta name="description" content="Rincón de Freddy es un restaurante y cafetería mediterránea en Benidorm con terraza, desayunos, bocadillos, tapas, cafés y producto fresco todos los días.">
   <meta name="keywords" content="Rincón de Freddy, restaurante Benidorm, cafetería Benidorm, desayunos, tapas, terraza, bocadillos, café, gastronomía mediterránea">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <link rel="canonical" href="https://bascar835.github.io/rincon-freddy/">
+  <link rel="canonical" href="./">
   <meta property="og:locale" content="es_ES">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Rincón de Freddy">
   <meta property="og:title" content="Rincón de Freddy | Restaurante y cafetería mediterránea en Benidorm">
   <meta property="og:description" content="Desayunos, bocadillos, cafés, tapas y terraza mediterránea en el corazón de Benidorm.">
-  <meta property="og:url" content="https://bascar835.github.io/rincon-freddy/">
-  <meta property="og:image" content="https://bascar835.github.io/rincon-freddy/assets/img/hero.jpg">
+  <meta property="og:url" content="./">
+  <meta property="og:image" content="assets/img/hero.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Rincón de Freddy | Restaurante y cafetería mediterránea en Benidorm">
   <meta name="twitter:description" content="Terraza, desayunos, tapas y cocina fresca con sabor mediterráneo en Benidorm.">
-  <meta name="twitter:image" content="https://bascar835.github.io/rincon-freddy/assets/img/hero.jpg">
-  <meta name="theme-color" content="#C34F26">
+  <meta name="twitter:image" content="assets/img/hero.jpg">
+  <meta name="theme-color" content="#b35d2b">
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <link rel="apple-touch-icon" href="assets/img/logo.png">
-  <link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22Rinc%C3%B3n%20de%20Freddy%22%2C%22short_name%22%3A%22Freddy%22%2C%22start_url%22%3A%22./%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23FBF3E6%22%2C%22theme_color%22%3A%22%23C34F26%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22assets/img/logo.png%22%2C%22sizes%22%3A%22512x512%22%2C%22type%22%3A%22image/png%22%7D%5D%7D">
+  <link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22Rinc%C3%B3n%20de%20Freddy%22%2C%22short_name%22%3A%22Freddy%22%2C%22start_url%22%3A%22.%2F%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23fff8f2%22%2C%22theme_color%22%3A%22%23b35d2b%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22assets%2Fimg%2Flogo.png%22%2C%22sizes%22%3A%22512x512%22%2C%22type%22%3A%22image%2Fpng%22%7D%5D%7D">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -112,7 +112,7 @@
           <h1>Un rincón mediterráneo donde el día empieza con café, terraza y producto fresco.</h1>
           <p class="lead">Rincón de Freddy combina desayunos generosos, tapas con carácter, bocadillos recién hechos y una carta pensada para disfrutar sin prisas en una atmósfera luminosa, amable y auténtica.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#contacto">Reservar</a>
+            <a class="btn btn-primary" href="https://wa.me/34669240335?text=Hola%20Rinc%C3%B3n%20de%20Freddy%2C%20quiero%20reservar%20mesa." target="_blank" rel="noopener noreferrer">Reservar por WhatsApp</a>
             <a class="btn btn-secondary" href="#carta">Carta</a>
             <a class="btn btn-ghost" href="blog.html">Blog</a>
           </div>
@@ -123,8 +123,10 @@
           </ul>
         </div>
         <figure class="hero-visual reveal">
-          <img src="assets/img/hero.jpg" alt="Fachada y ambiente de Rincón de Freddy en Benidorm" class="hero-image" data-parallax>
-          <figcaption>Benidorm se disfruta mejor con terraza, producto fresco y una mesa bien servida.</figcaption>
+          <div class="hero-media-frame" id="hero-media">
+            <img src="assets/img/hero.jpg" alt="Fachada y ambiente de Rincón de Freddy en Benidorm" class="hero-image" data-parallax>
+          </div>
+          <figcaption id="hero-caption">Benidorm se disfruta mejor con terraza, producto fresco y una mesa bien servida.</figcaption>
         </figure>
       </div>
     </section>
@@ -194,17 +196,20 @@
       </div>
       <div class="container card-grid testimonial-grid">
         <article class="testimonial-card">
-          <p>“Desayunamos en terraza y todo llegó rápido, bien presentado y con sabor casero. El café estaba excelente y el trato fue cercano sin ser invasivo.”</p>
-          <strong>María, visitante habitual</strong>
+          <p>“Repitió cada día de su estancia, incluida Navidad, por lo limpio y acogedor del local.”</p>
+          <strong>Rosanne (Leicester, Reino Unido) </strong>
         </article>
         <article class="testimonial-card">
-          <p>“Los bocadillos tienen buen tamaño y la materia prima se nota. Nos gustaron mucho las sardinas y el ambiente relajado del local.”</p>
-          <strong>Andrés, familia de Benidorm</strong>
+          <p>“ Lo llama su desayuno perfecto en Benidorm: mejor café de la ciudad y buen precio.”</p>
+          <strong>Michell C.</strong>
         </article>
         <article class="testimonial-card">
-          <p>“Es un sitio cómodo para parar, leer el blog y pedir algo fresco. La terraza y la carta de cafés lo convierten en una parada segura.”</p>
-          <strong>Lucía, viajera foodie</strong>
+          <p>“En su segunda visita destaca las tapas, el café y el trato del personal.”</p>
+          <strong>Gavin (Larbert, Reino Unido) </strong>
         </article>
+      </div>
+      <div class="container" style="text-align:center; margin-top: 1.8rem;">
+        <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=Rinc%C3%B3n%20de%20Freddy%20Benidorm" target="_blank" rel="noopener noreferrer">Ver todas las opiniones en Google</a>
       </div>
     </section>
 
@@ -234,14 +239,17 @@
             <p>Lunes a viernes: 08:00 - 23:00</p>
             <p>Sábado y domingo: 08:30 - 23:30</p>
           </div>
+          <a class="btn btn-primary" href="https://wa.me/34669240335?text=Hola%20Rinc%C3%B3n%20de%20Freddy%2C%20quiero%20reservar%20mesa." target="_blank" rel="noopener noreferrer">Reservar por WhatsApp</a>
         </div>
         <div class="contact-panel contact-map" aria-label="Mapa y ubicación de Rincón de Freddy">
-          <div class="map-placeholder">
-            <span>Mapa</span>
-            <strong>Benidorm · Costa Blanca</strong>
-            <p>Ubicación céntrica para desayunar, comer o tomar un café antes de seguir el paseo.</p>
-            <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=Rinc%C3%B3n%20de%20Freddy%20Benidorm" target="_blank" rel="noopener noreferrer">Abrir en Maps</a>
+          <div class="map-embed">
+            <iframe
+              src="https://www.google.com/maps?q=Av.+Jaime+I,+48,+03501+Benidorm,+Alicante&output=embed"
+              width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Mapa de Rincón de Freddy en Benidorm"></iframe>
           </div>
+          <a class="btn btn-primary map-embed-cta" href="https://www.google.com/maps/search/?api=1&query=Rinc%C3%B3n%20de%20Freddy%20Benidorm" target="_blank" rel="noopener noreferrer">Cómo llegar</a>
         </div>
       </div>
     </section>
@@ -251,7 +259,7 @@
         <p class="eyebrow">Reserva tu mesa</p>
         <h2>Empieza el día con un desayuno tranquilo o termina con una tapa frente a la terraza.</h2>
         <p>Rincón de Freddy está preparado para recibirte con producto fresco, servicio atento y una carta que funciona de la mañana a la noche.</p>
-        <a class="btn btn-primary" href="#contacto">Reservar ahora</a>
+        <a class="btn btn-primary" href="https://wa.me/34669240335?text=Hola%20Rinc%C3%B3n%20de%20Freddy%2C%20quiero%20reservar%20mesa." target="_blank" rel="noopener noreferrer">Reservar por WhatsApp</a>
       </div>
     </section>
   </main>

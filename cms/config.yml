@@ -11,6 +11,47 @@ media_folder: "assets/img/uploads"
 public_folder: "assets/img/uploads"
 
 collections:
+  - name: "home"
+    label: "Página principal"
+    files:
+      - name: "home"
+        label: "Sección principal (Hero)"
+        file: "content/home.json"
+        format: json
+        fields:
+          - name: hero_media
+            label: "Foto o vídeo principal"
+            widget: object
+            hint: "Esto es lo que se muestra arriba del todo, en la portada de la web."
+            fields:
+              - name: type
+                label: "Tipo de contenido"
+                widget: select
+                default: image
+                options:
+                  - { label: "Foto", value: "image" }
+                  - { label: "Vídeo subido (mp4)", value: "video" }
+                  - { label: "Reel / enlace externo (Instagram, TikTok, YouTube Shorts)", value: "embed" }
+              - name: image
+                label: "Foto"
+                widget: image
+                required: false
+                hint: "Rellena solo si el tipo es 'Foto'."
+              - name: video
+                label: "Archivo de vídeo"
+                widget: file
+                required: false
+                hint: "Rellena solo si el tipo es 'Vídeo subido'. Sube un .mp4 ligero."
+              - name: embed_url
+                label: "Enlace del reel o vídeo"
+                widget: string
+                required: false
+                hint: "Rellena solo si el tipo es 'Reel / enlace externo'. Pega la URL completa (Instagram, TikTok o YouTube)."
+              - name: caption
+                label: "Pie de foto/vídeo"
+                widget: string
+                required: false
+
   - name: "posts"
     label: "Blog · Artículos"
     files:
@@ -32,27 +73,48 @@ collections:
                 label: "Categoría"
                 widget: select
                 options: ["Desayunos", "Ambiente", "Gastronomía", "Benidorm", "Tapas"]
-              - { name: image, label: "Imagen principal (portada del artículo)", widget: image }
-              - name: hero_video
-                label: "Vídeo destacado (opcional)"
-                widget: file
+              - name: image
+                label: "Imagen (miniatura y vista previa para compartir)"
+                widget: image
+                hint: "Se usa en la tarjeta del blog y como vista previa al compartir el enlace (WhatsApp, redes). Es obligatoria aunque abajo pongas un vídeo."
+              - name: featured_media
+                label: "Vídeo o reel de cabecera (opcional)"
+                widget: object
                 required: false
-                hint: "Si lo rellenas, este vídeo sustituye a la imagen principal en la cabecera del artículo. Sube un .mp4 ligero."
-              - name: hero_video_embed_url
-                label: "O enlace de reel/vídeo destacado (opcional)"
-                widget: string
-                required: false
-                hint: "Alternativa al vídeo subido: pega la URL de un reel de Instagram, TikTok o YouTube Shorts para que aparezca en la cabecera. Si rellenas esto, no hace falta el campo de vídeo subido."
+                hint: "Si lo rellenas, esto es lo que se ve grande arriba del artículo, en vez de la imagen. Si lo dejas vacío, se usa la imagen de arriba."
+                fields:
+                  - name: type
+                    label: "Tipo de contenido"
+                    widget: select
+                    default: image
+                    options:
+                      - { label: "Usar la imagen de arriba", value: "image" }
+                      - { label: "Vídeo subido (mp4)", value: "video" }
+                      - { label: "Reel / enlace externo (Instagram, TikTok, YouTube Shorts)", value: "embed" }
+                  - name: video
+                    label: "Archivo de vídeo"
+                    widget: file
+                    required: false
+                    hint: "Rellena solo si el tipo es 'Vídeo subido'. Sube un .mp4 ligero."
+                  - name: embed_url
+                    label: "Enlace del reel o vídeo"
+                    widget: string
+                    required: false
+                    hint: "Rellena solo si el tipo es 'Reel / enlace externo'. Pega la URL completa (Instagram, TikTok o YouTube)."
               - { name: excerpt, label: "Extracto (resumen corto)", widget: text }
               - name: content
                 label: "Secciones del artículo"
                 widget: list
+                required: false
+                hint: "Opcional. Puedes dejarlo vacío si el artículo es solo el vídeo/imagen de arriba y el extracto."
                 summary: "{{heading}}"
                 fields:
                   - { name: heading, label: "Subtítulo de la sección", widget: string }
                   - name: paragraphs
                     label: "Párrafos"
                     widget: list
+                    required: false
+                    hint: "Opcional. Puedes dejarlo vacío si esta sección es solo una foto o un vídeo."
                     field: { name: paragraph, label: "Párrafo", widget: text }
                   - name: media
                     label: "Fotos, vídeos o reels de esta sección"
