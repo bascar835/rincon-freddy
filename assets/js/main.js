@@ -15,7 +15,7 @@ const RF_DATA = {
     { label: 'Blog', anchor: 'blog.html' },
   ],
   posts: [],
-  menu: { featured: [], extra: [] },
+  menu: { categories: [] },
   gallery: { images: [] },
   hero: { hero_media: { type: 'image', image: 'assets/img/hero.jpg', caption: '' } },
 };
@@ -41,12 +41,12 @@ async function fetchJson(file, fallback) {
 async function loadSiteData() {
   const [postsData, menuData, galleryData, homeData] = await Promise.all([
     fetchJson('posts.json', { posts: [] }),
-    fetchJson('menu.json', { featured: [], extra: [] }),
+    fetchJson('menu.json', { categories: [] }),
     fetchJson('gallery.json', { images: [] }),
     fetchJson('home.json', RF_DATA.hero),
   ]);
   RF_DATA.posts = postsData.posts || [];
-  RF_DATA.menu = { featured: menuData.featured || [], extra: menuData.extra || [] };
+  RF_DATA.menu = { categories: menuData.categories || [] };
   RF_DATA.gallery = { images: galleryData.images || [] };
   RF_DATA.hero = homeData && homeData.hero_media ? homeData : RF_DATA.hero;
 }
@@ -103,7 +103,7 @@ function createBlogCard(post, compact = false) {
       <p class="blog-meta"><span>${formatDate(post.date)}</span></p>
       <h3>${post.title}</h3>
       <p>${post.excerpt}</p>
-      <a class="btn ${compact ? 'btn-ghost' : 'btn-secondary'}" href="post.html?post=${encodeURIComponent(post.slug)}">Leer artículo</a>
+      <a class="btn ${compact ? 'btn-ghost' : 'btn-secondary'}" href="post-${post.slug}.html">Leer artículo</a>
     </div>
   `;
   return article;
@@ -117,8 +117,8 @@ function createDishCard(dish) {
     </div>
     <div>
       <h3>${dish.title}</h3>
-      <p>${dish.description}</p>
-      <strong>${dish.price}</strong>
+      ${dish.description ? `<p>${dish.description}</p>` : ''}
+      ${dish.price ? `<strong>${dish.price}</strong>` : ''}
     </div>
   `;
   return article;
@@ -168,16 +168,20 @@ function renderLatestPosts() {
   container.replaceChildren(...RF_DATA.posts.slice(0, 3).map((post) => createBlogCard(post, true)));
 }
 function renderMenu() {
-  const featuredContainer = document.querySelector('#menu-featured');
-  if (featuredContainer) featuredContainer.replaceChildren(...RF_DATA.menu.featured.map((dish) => createDishCard(dish)));
-  const extraContainer = document.querySelector('#menu-extra-list');
-  if (extraContainer) {
-    extraContainer.replaceChildren(...RF_DATA.menu.extra.map((line) => {
-      const li = document.createElement('li');
-      li.textContent = line;
-      return li;
-    }));
-  }
+  const container = document.querySelector('#menu-categories');
+  if (!container) return;
+  const categories = RF_DATA.menu.categories || [];
+  container.replaceChildren(...categories.map((category) => {
+    const section = document.createElement('div');
+    section.className = 'menu-category';
+    const heading = document.createElement('h3');
+    heading.textContent = category.title;
+    const grid = document.createElement('div');
+    grid.className = 'card-grid card-grid-featured';
+    grid.append(...(category.items || []).map((dish) => createDishCard(dish)));
+    section.append(heading, grid);
+    return section;
+  }));
 }
 function renderGallery() {
   const container = document.querySelector('#gallery-grid');
@@ -202,7 +206,7 @@ function updateBlogPostingSchema() {
     dateModified: post.date,
     image: [post.image],
     description: post.excerpt,
-    mainEntityOfPage: `post.html?post=${encodeURIComponent(post.slug)}`,
+    mainEntityOfPage: `post-${post.slug}.html`,
     publisher: {
       '@type': 'Organization',
       name: 'Rincón de Freddy',

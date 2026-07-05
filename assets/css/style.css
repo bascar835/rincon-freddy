@@ -153,7 +153,10 @@ main { overflow: clip; }
 .dish-card img { aspect-ratio: 1 / 1; }
 .dish-card strong { font-family: var(--font-display); font-size: 1.05rem; color: var(--primary-dark); }
 .blog-meta, .post-meta, .results-info, .footer-bottom, .contact-list, .menu-summary, .share-row { font-size: 0.95rem; }
-.menu-summary, .blog-filters, .footer-bottom { display: flex; justify-content: space-between; gap: 1.2rem; align-items: center; }
+.blog-filters, .footer-bottom { display: flex; justify-content: space-between; gap: 1.2rem; align-items: center; }
+.menu-summary { display: flex; justify-content: flex-end; gap: 1.2rem; align-items: center; margin-top: 2rem; }
+.menu-categories { display: grid; gap: 2.75rem; }
+.menu-category h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.35rem; margin: 0 0 1.1rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--line-warm); }
 .check-list, .contact-list, .footer-grid ul { list-style: none; padding: 0; margin: 0; }
 .check-list { display: grid; gap: 0.7rem; margin-top: 1rem; }
 .check-list li { position: relative; padding-left: 1.4rem; }

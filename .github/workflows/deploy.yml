@@ -1,0 +1,50 @@
+# Genera automáticamente el HTML de SEO (artículos, carta, galería,
+# sitemap.xml y robots.txt a partir de los JSON de /content) y despliega
+# el sitio en GitHub Pages. Se ejecuta con cada cambio en main (incluidas
+# las publicaciones desde el panel /cms/), así que nunca hace falta
+# correr el script a mano.
+name: Generar SEO y desplegar en GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Regenerar páginas de artículos, carta, galería, sitemap y robots
+        run: python3 build/generate-seo-pages.py
+
+      - name: Configurar Pages
+        uses: actions/configure-pages@v5
+
+      - name: Subir artefacto
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "."
+
+      - name: Desplegar en GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,58 +1,169 @@
 {
-  "featured": [
+  "categories": [
     {
-      "title": "Sardinas",
-      "image": "assets/img/sardinas.jpg",
-      "alt": "Sardinas a la plancha con limón y aceite de oliva",
-      "description": "Sardinas a la plancha, jugosas y con un toque de limón, servidas cuando el mar pide mesa y una bebida fresca.",
-      "price": "8,90 €"
+      "title": "Raciones",
+      "items": [
+        {
+          "title": "Sardinas Frescas",
+          "image": "assets/img/sardinas.jpg",
+          "alt": "Ración de sardinas frescas a la plancha",
+          "description": "Sardinas del día a la plancha, con un toque de limón y aceite de oliva.",
+          "price": "4,80 €"
+        }
+      ]
     },
     {
-      "title": "Anchoas",
-      "image": "assets/img/anchoas.jpg",
-      "alt": "Anchoas servidas sobre pan crujiente con tomate",
-      "description": "Anchoas sobre pan crujiente con tomate maduro, aceite de oliva y un punto salino elegante.",
-      "price": "7,40 €"
+      "title": "Bocadillos",
+      "items": [
+        {
+          "title": "Pollo",
+          "image": "assets/img/bocadillo-pollo.jpg",
+          "alt": "Bocadillo de pollo",
+          "description": "Pechuga de pollo a la plancha en pan recién hecho.",
+          "price": "4,80 €"
+        },
+        {
+          "title": "Lomo",
+          "image": "assets/img/bocadillo-lomo.jpg",
+          "alt": "Bocadillo de lomo",
+          "description": "Lomo de cerdo a la plancha, jugoso y bien acompañado.",
+          "price": "4,80 €"
+        },
+        {
+          "title": "Bacon",
+          "image": "assets/img/bocadillo-bacon.jpg",
+          "alt": "Bocadillo de bacon",
+          "description": "Bacon crujiente en pan tostado.",
+          "price": "4,80 €"
+        },
+        {
+          "title": "Panceta",
+          "image": "assets/img/bocadillo-panceta.jpg",
+          "alt": "Bocadillo de panceta",
+          "description": "Panceta a la plancha con un punto crujiente por fuera y tierno por dentro.",
+          "price": "4,80 €"
+        },
+        {
+          "title": "Vegetal",
+          "image": "assets/img/bocadillo-vegetal.jpg",
+          "alt": "Bocadillo vegetal",
+          "description": "Verduras frescas de temporada en pan artesano.",
+          "price": "4,80 €"
+        },
+        {
+          "title": "Tortilla",
+          "image": "assets/img/bocadillo-tortilla.jpg",
+          "alt": "Bocadillo de tortilla",
+          "description": "Tortilla española casera, jugosa y recién hecha.",
+          "price": "4,80 €"
+        },
+        {
+          "title": "Longaniza",
+          "image": "assets/img/bocadillo-longaniza.jpg",
+          "alt": "Bocadillo de longaniza",
+          "description": "Longaniza a la plancha con todo su sabor.",
+          "price": "4,80 €"
+        },
+        {
+          "title": "Jamón Serrano y Queso Manchego",
+          "image": "assets/img/bocadillo-jamon-queso.jpg",
+          "alt": "Bocadillo de jamón serrano y queso manchego",
+          "description": "Jamón serrano y queso manchego, un clásico que nunca falla.",
+          "price": "4,80 €"
+        }
+      ]
     },
     {
-      "title": "Chorizos al infierno",
-      "image": "assets/img/chorizos-infierno.jpg",
-      "alt": "Chorizos al infierno servidos en cazuela de barro con cerveza",
-      "description": "Un plato con carácter, servido en cazuela de barro y acompañado de bebida fresca para despertar el apetito sin ocultar el sabor principal.",
-      "price": "9,20 €"
+      "title": "Cafés y Bebidas Favoritas",
+      "items": [
+        {
+          "title": "Caramel Latte",
+          "image": "assets/img/caramel-latte.jpg",
+          "alt": "Caramel Latte frío o caliente",
+          "description": "Frío o caliente.",
+          "price": ""
+        },
+        {
+          "title": "Chai Latte",
+          "image": "assets/img/chai-latte.jpg",
+          "alt": "Chai Latte frío o caliente",
+          "description": "Frío o caliente.",
+          "price": ""
+        },
+        {
+          "title": "Leche Dorada",
+          "image": "assets/img/leche-dorada.jpg",
+          "alt": "Leche dorada frío o caliente",
+          "description": "Frío o caliente.",
+          "price": ""
+        },
+        {
+          "title": "Batidos Naturales",
+          "image": "assets/img/batido-natural.jpg",
+          "alt": "Batidos naturales fríos o calientes",
+          "description": "Frío o caliente.",
+          "price": ""
+        }
+      ]
     },
     {
-      "title": "Tapa casera",
-      "image": "https://images.pexels.com/photos/31918770/pexels-photo-31918770.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "alt": "Tapa casera servida en cazuela con pan para acompañar",
-      "description": "Una ración caliente de inspiración casera, pensada para compartir con pan y bebida en un ambiente relajado.",
-      "price": "8,20 €"
+      "title": "Ofertas Desayuno",
+      "items": [
+        {
+          "title": "Café o Infusión",
+          "image": "assets/img/desayuno-tostada.jpg",
+          "alt": "Café o infusión de desayuno",
+          "description": "",
+          "price": ""
+        },
+        {
+          "title": "Tostada Aceite y Tomate",
+          "image": "assets/img/desayuno-tostada.jpg",
+          "alt": "Tostada con aceite y tomate",
+          "description": "",
+          "price": ""
+        },
+        {
+          "title": "Tostada Mantequilla y Mermelada",
+          "image": "assets/img/desayuno-tostada.jpg",
+          "alt": "Tostada con mantequilla y mermelada",
+          "description": "",
+          "price": ""
+        },
+        {
+          "title": "Zumo Natural",
+          "image": "assets/img/batido-natural.jpg",
+          "alt": "Zumo natural recién exprimido",
+          "description": "",
+          "price": ""
+        }
+      ]
     },
     {
-      "title": "Barra y café",
-      "image": "https://images.pexels.com/photos/5322559/pexels-photo-5322559.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "alt": "Café con cerveza y tapa en mesa de madera",
-      "description": "Servicio de barra con café, cerveza y tapas sencillas para cualquier hora del día.",
-      "price": "Desde 2,10 €"
-    },
-    {
-      "title": "Picoteo fresco",
-      "image": "https://images.pexels.com/photos/775032/pexels-photo-775032.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "alt": "Tapa de picoteo fresca servida en mesa",
-      "description": "Raciones ligeras y frescas para acompañar aperitivos, sobremesa o una parada breve en terraza.",
-      "price": "4,90 €"
-    },
-    {
-      "title": "Desayunos",
-      "image": "https://images.pexels.com/photos/25048973/pexels-photo-25048973.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "alt": "Bocadillo o tostada con jamón serrano servida al momento",
-      "description": "Tostadas y bocadillos con jamón, tomate y café para comenzar el día con energía y sin prisas.",
-      "price": "Desde 4,50 €"
+      "title": "Extras",
+      "items": [
+        {
+          "title": "Jamón Serrano",
+          "image": "assets/img/extra-jamon-serrano.jpg",
+          "alt": "Extra de jamón serrano",
+          "description": "",
+          "price": "1,50 €"
+        },
+        {
+          "title": "Jamón York",
+          "image": "assets/img/extra-jamon-york.jpg",
+          "alt": "Extra de jamón york",
+          "description": "",
+          "price": "1,50 €"
+        },
+        {
+          "title": "Queso Manchego",
+          "image": "assets/img/extra-queso-manchego.jpg",
+          "alt": "Extra de queso manchego",
+          "description": "",
+          "price": ""
+        }
+      ]
     }
-  ],
-  "extra": [
-    "Bocadillos de lomo, bacon, panceta y longaniza",
-    "Extras de jamón serrano, jamón york y queso manchego",
-    "Chai latte, leche dorada y opciones frías de temporada"
   ]
 }

@@ -160,21 +160,22 @@ collections:
         file: "content/menu.json"
         format: json
         fields:
-          - name: featured
-            label: "Platos destacados (carta principal)"
+          - name: categories
+            label: "Categorías (Raciones, Bocadillos, Cafés y bebidas...)"
             widget: list
-            summary: "{{title}} — {{price}}"
+            summary: "{{title}}"
             fields:
-              - { name: title, label: "Nombre del plato", widget: string }
-              - { name: image, label: "Imagen", widget: image }
-              - { name: alt, label: "Texto alternativo de la imagen", widget: string }
-              - { name: description, label: "Descripción", widget: text }
-              - { name: price, label: "Precio (ej. 8,90 € o Desde 4,50 €)", widget: string }
-
-          - name: extra
-            label: "También encontrarás (lista corta de texto)"
-            widget: list
-            field: { name: line, label: "Línea", widget: string }
+              - { name: title, label: "Nombre de la categoría", widget: string }
+              - name: items
+                label: "Platos de esta categoría"
+                widget: list
+                summary: "{{title}} — {{price}}"
+                fields:
+                  - { name: title, label: "Nombre del plato", widget: string }
+                  - { name: image, label: "Imagen", widget: image }
+                  - { name: alt, label: "Texto alternativo de la imagen", widget: string }
+                  - { name: description, label: "Descripción", widget: text, required: false }
+                  - { name: price, label: "Precio (ej. 4,80 €). Déjalo vacío si no tiene precio fijo", widget: string, required: false }
 
   - name: "gallery"
     label: "Galería"

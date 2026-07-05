@@ -1,6 +1,6 @@
 function getCurrentPost() {
   const params = new URLSearchParams(window.location.search);
-  const slug = params.get('post') || window.location.hash.replace('#', '');
+  const slug = window.RF_POST_SLUG || params.get('post') || window.location.hash.replace('#', '');
   return window.RF_DATA.posts.find((post) => post.slug === slug) || window.RF_DATA.posts[0];
 }
 function setMetaTag(selector, attribute, value) {
@@ -113,9 +113,13 @@ function buildPostContent(post) {
     }
   });
 }
+function staticPostUrl(post) {
+  const base = window.location.pathname.replace(/[^/]*$/, '');
+  return `${window.location.origin}${base}post-${post.slug}.html`;
+}
 function renderShareButtons(post) {
   const targets = [document.querySelector('#post-share-top'), document.querySelector('#post-share-bottom')].filter(Boolean);
-  const shareUrl = `${window.location.origin}${window.location.pathname}?post=${encodeURIComponent(post.slug)}`;
+  const shareUrl = staticPostUrl(post);
   const text = `${post.title} - Rincón de Freddy`;
   targets.forEach((target) => {
     target.replaceChildren();
@@ -163,7 +167,7 @@ function updateStructuredData(post) {
     dateModified: post.date,
     image: [post.image],
     description: post.excerpt,
-    mainEntityOfPage: `${window.location.origin}${window.location.pathname}?post=${encodeURIComponent(post.slug)}`,
+    mainEntityOfPage: staticPostUrl(post),
     publisher: { '@type': 'Organization', name: 'Rincón de Freddy', logo: { '@type': 'ImageObject', url: 'assets/img/logo.png' } },
   };
   const element = document.querySelector('#blogposting-schema');
@@ -173,10 +177,10 @@ function applyPostMeta(post) {
   document.title = `${post.title} | Rincón de Freddy`;
   setMetaTag('meta[name="description"]', 'content', post.excerpt);
   setMetaTag('meta[name="keywords"]', 'content', `${post.category.toLowerCase()}, gastronomía, Benidorm, Rincón de Freddy`);
-  setMetaTag('link[rel="canonical"]', 'href', `post.html?post=${encodeURIComponent(post.slug)}`);
+  setMetaTag('link[rel="canonical"]', 'href', staticPostUrl(post));
   setMetaTag('meta[property="og:title"]', 'content', post.title);
   setMetaTag('meta[property="og:description"]', 'content', post.excerpt);
-  setMetaTag('meta[property="og:url"]', 'content', `post.html?post=${encodeURIComponent(post.slug)}`);
+  setMetaTag('meta[property="og:url"]', 'content', staticPostUrl(post));
   setMetaTag('meta[property="og:image"]', 'content', post.image);
   setMetaTag('meta[name="twitter:title"]', 'content', post.title);
   setMetaTag('meta[name="twitter:description"]', 'content', post.excerpt);
