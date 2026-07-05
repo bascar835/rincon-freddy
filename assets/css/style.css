@@ -290,12 +290,12 @@ main { overflow: clip; }
   position: fixed;
   right: 1rem;
   bottom: 4.75rem;
-  min-height: 56px;
-  padding: 0.72rem 1rem 0.72rem 0.9rem;
+  width: 60px;
+  height: 60px;
+  padding: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.65rem;
   border-radius: 50%;
   background: #25d366;
   color: #fff;
@@ -312,9 +312,17 @@ main { overflow: clip; }
   color: #fff;
 }
 .whatsapp-float__icon {
-  width: 1.3rem;
-  height: 1.3rem;
+  width: 1.9rem;
+  height: 1.9rem;
   flex: 0 0 auto;
+}
+.whatsapp-float__label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .reveal.is-visible { opacity: 1; transform: translateY(0); }
@@ -340,8 +348,8 @@ main { overflow: clip; }
   .hero-actions, .post-actions, .chip-group, .share-row { flex-direction: column; align-items: stretch; }
   .btn, .share-btn, .chip { width: 100%; }
   .back-to-top { width: 46px; height: 46px; }
-  .whatsapp-float { min-height: 48px; padding: 0.62rem 0.85rem; bottom: 4.3rem; font-size: 0.9rem; }
-  .whatsapp-float__icon { width: 1.1rem; height: 1.1rem; }
+  .whatsapp-float { width: 52px; height: 52px; bottom: 4.3rem; font-size: 0.9rem; }
+  .whatsapp-float__icon { width: 1.6rem; height: 1.6rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
