@@ -150,7 +150,7 @@ function initNavigation() {
 function initRevealAnimations() {
   const nodes = document.querySelectorAll('.reveal');
   if (!('IntersectionObserver' in window)) { nodes.forEach((node) => node.classList.add('is-visible')); return; }
-  const observer = new IntersectionObserver((entries, instance) => { entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); instance.unobserve(entry.target); } }); }, { threshold: 0.18 });
+  const observer = new IntersectionObserver((entries, instance) => { entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); instance.unobserve(entry.target); } }); }, { threshold: 0, rootMargin: '0px 0px -10% 0px' });
   nodes.forEach((node) => observer.observe(node));
 }
 function initBackToTop() {
