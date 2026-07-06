@@ -104,9 +104,23 @@
     </div>
   </header>
 
+  <section class="rf-banner" id="rf-banner" aria-label="Fachada de Rincón de Freddy">
+    <div class="rf-banner-media">
+      <img src="assets/img/banner-rincon.jpg" alt="Fachada de Rincón de Freddy en Benidorm al atardecer" class="rf-banner-img" id="rf-banner-img">
+    </div>
+    <div class="rf-banner-overlay">
+      <h2 class="rf-banner-title" id="rf-banner-title" aria-label="Rincón de Freddy">
+        <span class="rf-banner-word">Rincón</span>
+        <span class="rf-banner-word rf-banner-word--accent">de</span>
+        <span class="rf-banner-word">Freddy</span>
+      </h2>
+      <p class="rf-banner-sub">Benidorm · sabor mediterráneo</p>
+    </div>
+  </section>
+
   <main id="main-content">
     <section class="hero">
-      <div class="container hero-grid">
+      <div class="container hero-grid hero-grid--single">
         <div class="hero-copy reveal">
           <p class="eyebrow">Cafetería y restaurante en Benidorm</p>
           <h1>Un rincón mediterráneo donde el día empieza con café, terraza y producto fresco.</h1>
@@ -122,12 +136,6 @@
             <li>Tapas y bocadillos artesanos</li>
           </ul>
         </div>
-        <figure class="hero-visual reveal">
-          <div class="hero-media-frame" id="hero-media">
-            <img src="assets/img/hero.jpg" alt="Fachada y ambiente de Rincón de Freddy en Benidorm" class="hero-image" data-parallax>
-          </div>
-          <figcaption id="hero-caption">Benidorm se disfruta mejor con terraza, producto fresco y una mesa bien servida.</figcaption>
-        </figure>
       </div>
     </section>
 
@@ -312,6 +320,8 @@ Av. Jaime I, 48, Benidorm
     </svg>
     <span class="whatsapp-float__label">Contáctanos</span>
   </a>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js" defer></script>
+  <script src="assets/js/rf-banner.js" defer></script>
   <script src="assets/js/main.js" defer></script>
 </body>
 </html>

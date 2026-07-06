@@ -86,10 +86,75 @@ h3 { font-weight: 600; }
 .menu-toggle span { display: block; width: 20px; height: 2px; background: var(--text); margin-inline: auto; border-radius: 999px; }
 main { overflow: clip; }
 
+/* ---------- Banner de fachada (bajo el header) ---------- */
+.rf-banner {
+  position: relative;
+  width: 100%;
+  height: clamp(280px, 46vw, 560px);
+  overflow: hidden;
+  background: var(--azulejo);
+}
+.rf-banner-media { position: absolute; inset: 0; }
+.rf-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 38%;
+  opacity: 0;
+  display: block;
+  will-change: transform;
+}
+.rf-banner-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.6rem;
+  padding: 1.5rem;
+  background: linear-gradient(180deg, rgba(20, 13, 8, 0.15) 0%, rgba(20, 13, 8, 0.55) 100%);
+}
+.rf-banner-title {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.55rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.4rem, 7vw, 5rem);
+  letter-spacing: 0.01em;
+  color: #fff;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+.rf-banner-word { display: inline-block; opacity: 0; }
+.rf-banner-word--accent {
+  color: var(--accent);
+  font-size: 0.55em;
+  font-weight: 600;
+  align-self: center;
+}
+.rf-banner-sub {
+  margin: 0;
+  opacity: 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+@media (prefers-reduced-motion: reduce) {
+  .rf-banner-img, .rf-banner-word, .rf-banner-sub { opacity: 1 !important; transform: none !important; }
+}
+
 /* ---------- Hero ---------- */
 .hero, .page-hero, .post-hero { padding: clamp(3rem, 6vw, 6rem) 0 0; }
 .hero-grid, .page-hero-inner, .post-hero-grid { display: grid; gap: 2.4rem; align-items: center; }
 .hero-grid { grid-template-columns: 1.05fr 0.95fr; }
+.hero-grid.hero-grid--single { grid-template-columns: 1fr; max-width: 68ch; }
 .page-hero-inner, .post-hero-grid { grid-template-columns: 1fr 0.9fr; }
 .hero-copy h1, .page-hero h1, .post-hero h1, .section-heading h2, .cta-box h2, .error-card h1 {
   margin: 0; font-weight: 600; font-size: clamp(2.6rem, 6vw, 4.6rem); line-height: 0.98; letter-spacing: -0.02em;
